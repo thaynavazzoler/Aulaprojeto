@@ -37,7 +37,10 @@ const [tasks, setTasks] = useState([]);
   <View style={styles.list}>
   {tasks.length === 0 ? (
     <Text style={styles.emplyList}>Nenhuma Tarefa Cadastrada</Text>
-  ) : tasks.map((task) => (
+  ) : (
+    <Text style={styles.cadasterList}>Tarefas Cadastradas</Text>
+  )}
+  {tasks.map((task) => (
     <View
       key={task.id}
       style={styles.item}
@@ -63,7 +66,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center",
+
   },
   form:{
     display: "flex",
@@ -72,9 +75,13 @@ const styles = StyleSheet.create({
   },
   input:{
     borderWidth: 1,
-    borderColor: "#000",
     width: "75%",
     padding: 5,
+    borderBottomColor: "#000",
+    borderTopColor: "#fff",
+    borderLeftColor: "#fff",
+    borderRightColor: "#fff",
+    borderRadius: 5,
   },
   button:{
     backgroundColor: "blue",
@@ -85,26 +92,25 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
   emplyList:{
-    fontSize: 18,
     color: "#ff0000",
+  },
+  cadasterList:{
+    textAlign: "center",
+    color: "#008000",
   },
   list:{
     marginTop: 20,
   },
   item:{
-
     borderBottomColor: "#000",
     borderBottomWidth: 1,
-    padding: 10,
     marginBottom: 10,
-    marginVertical: 5,
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     paddingBottom: 5,
   },
   itemText:{
-    fontSize: 18,
     width: "75%",
   },
   removeButton:{
